@@ -16,6 +16,10 @@ connection.once('open', () => {
 console.log("MongoDB database connection established successfully");
 })
 
+const conditionRouter = require('./routes/conditions');
+
+app.use('/conditions', conditionRouter);
+
 app.listen(port, () => {
 console.log(`Server is running on port: ${port}`);
 });
