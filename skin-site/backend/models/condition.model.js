@@ -12,4 +12,4 @@ const conditionSchema = new Schema({
 
 const Condition = mongoose.model('Condition', conditionSchema);
 
-module.exprots = Condition;
+module.exports = Condition;
