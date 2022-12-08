@@ -15,10 +15,11 @@ export default class DevDAO{
             )
         }
     }
-    static async addCondition(conditionName, conditionSymptoms){
+    static async addCondition(conditionName, conditionSymptoms, conditionTreatment){
         try{
             const condDoc = {name: conditionName,
-                            symptoms: conditionSymptoms,}
+                            symptoms: conditionSymptoms,
+                            treatment: conditionTreatment,}
             console.log(condDoc)
             return await conditions.insertOne(condDoc)
         } catch(e){
@@ -26,11 +27,12 @@ export default class DevDAO{
             return {error: e}
         }
     }
-    static async updateCondition(conditionID, conditionName, conditionSymptoms){
+    static async updateCondition(conditionID, conditionName, conditionSymptoms, conditionTreatment){
         try{
             const updateResponse = await conditions.updateOne({_id: ObjectId(conditionID)}, 
                                                               {$set: {name: conditionName,
-                                                                symptoms: conditionSymptoms,}})
+                                                                symptoms: conditionSymptoms,
+                                                                treatment: conditionTreatment,}})
             return updateResponse
         } catch (e){
             console.error(`unable to update condition: ${e}`)

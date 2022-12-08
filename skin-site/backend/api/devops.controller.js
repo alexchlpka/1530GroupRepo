@@ -5,10 +5,12 @@ export default class DevCtrl {
         try{
             const conditionName = req.body.name
             const conditionSymptoms = req.body.symptoms
+            const conditionTreatment = req.body.treatment
 
             const CondPostResponse = await DevDAO.addCondition(
                 conditionName,
                 conditionSymptoms,
+                conditionTreatment,
             )
 
             res.json({ status: "success"})
@@ -21,11 +23,13 @@ export default class DevCtrl {
             const conditionID = req.body._id
             const conditionName = req.body.name
             const conditionSymptoms = req.body.symptoms
+            const conditionTreatment = req.body.treatment
 
             const CondPutResponse = await DevDAO.updateCondition(
                 conditionID,
                 conditionName,
                 conditionSymptoms,
+                conditionTreatment,
             )
 
             var { error } = CondPutResponse
