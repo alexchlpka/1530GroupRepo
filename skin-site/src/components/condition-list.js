@@ -3,7 +3,7 @@ import SkinDataService from "../services/skinsite";
 import {Link} from "react-router-dom";
 
 const ListCondition = props => {
-    const [conditions, setConditions] = useState([]);
+    const [SkinConditions, setConditions] = useState([]);
 
     useEffect(() => {
         retrieveConditions();
@@ -26,17 +26,17 @@ const ListCondition = props => {
     return (
         <div>
           <div className="row">
-          {conditions.map((condition) => {
+          {SkinConditions.map((SkinCondition) => {
           return (
             <div className="col-lg-4 pb-1">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">{condition.name}</h5>
+                  <h5 className="card-title">{SkinCondition.name}</h5>
                   <p className="card-text">
-                    <strong>symptoms: </strong>{condition.symptoms}<br/>
+                    <strong>symptoms: </strong>{SkinCondition.symptoms}<br/>
                   </p>
                   <div className="row">
-                  <Link to={"/conditions/"+condition.id} className="btn btn-primary col-lg-5 mx-1 mb-1">
+                  <Link to={"/conditions/"+SkinCondition._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
                     View Condition
                   </Link>
                   </div>

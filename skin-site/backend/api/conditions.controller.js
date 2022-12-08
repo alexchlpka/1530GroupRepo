@@ -23,6 +23,7 @@ export default class ConditionsController {
             entries_per_page: conditionsPerPage,
             total_results: totalNumConditions,
         }
+        console.log(response)
         res.json(response)
     }
 }

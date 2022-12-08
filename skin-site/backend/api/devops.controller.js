@@ -5,14 +5,10 @@ export default class DevCtrl {
         try{
             const conditionName = req.body.name
             const conditionSymptoms = req.body.symptoms
-            const conditionDescription = req.body.description 
-            const conditionTreatment = req.body.treatment
 
             const CondPostResponse = await DevDAO.addCondition(
                 conditionName,
                 conditionSymptoms,
-                conditionDescription,
-                conditionTreatment,
             )
 
             res.json({ status: "success"})
@@ -25,15 +21,11 @@ export default class DevCtrl {
             const conditionID = req.body._id
             const conditionName = req.body.name
             const conditionSymptoms = req.body.symptoms
-            const conditionDescription = req.body.description 
-            const conditionTreatment = req.body.treatment
 
             const CondPutResponse = await DevDAO.updateCondition(
                 conditionID,
                 conditionName,
                 conditionSymptoms,
-                conditionDescription,
-                conditionTreatment,
             )
 
             var { error } = CondPutResponse
@@ -52,9 +44,9 @@ export default class DevCtrl {
     }
     static async apiDeleteCondition(req, res, next){
         try{
-            const conditionID = req.query._id
+            const conditionID = req.body._id
             console.log(conditionID)
-            const DeleteResponse = await DevDAO.deleteCondition(
+            const deleteResponse = await DevDAO.deleteCondition(
                 conditionID
             )
             res.json({status: "success"})
