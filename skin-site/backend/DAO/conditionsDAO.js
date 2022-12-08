@@ -48,4 +48,28 @@ export default class ConditionsDAO {
             return {conditionsList: [], totalNumConditions: 0}
         }
     }
+    static async getCondition({
+        filters = null,} = {}) {
+        let query
+        if(filters){
+            if ("_id" in filters) {
+                query = { $_id: { $eq: filters["_id"]}}
+            }
+        }
+        try{
+        } catch(e){
+            console.error(
+                `Unable to issue find command ${e}`
+            )
+            return {condition: []}
+        }
+        try{
+            console.log(`here's where I would be finding the item by ${filters["_id"]}`)
+            let condition = {}
+            return {condition}
+        } catch(e){
+            console.error(`Unable to convert cursor or problem counting documents, ${e}`)
+            return {condition: []}
+        }
+    }
 }

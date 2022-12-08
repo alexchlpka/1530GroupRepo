@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import ListCondition from "./components/condition-list";
 import DevOperations from "./components/dev-operations";
+import ShowCondition from "./components/show-condition";
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
         <Route exact path="/conditions"
           render={(props) => (
             <ListCondition {...props} />
+          )} />
+        <Route exact path="/conditions/id/*"
+          render={(props) => (
+            <ShowCondition {...props} />
           )} />
         <Route exact path="/conditions/devOps" 
           render={(props) => (

@@ -4,14 +4,15 @@ import { Link } from "react-router-dom";
 
 const Condition = props => {
   const initialConditionState = {
-    id: null,
+    _id: null,
     name: "",
-    symptoms: ""
+    symptoms: "",
+    treatment: "",
   };
   const [SkinCondition, setCondition] = useState(initialConditionState);
 
-  const getCondition = id => {
-    SkinDataService.get(id)
+  const getCondition = _id => {
+    SkinDataService.get(_id)
       .then(response => {
         setCondition(response.data.condition);
       })
@@ -21,6 +22,7 @@ const Condition = props => {
   };
 
   useEffect(() => {
+    console.log(props.match.params._id)
     getCondition(props.match.params._id);
   }, [props.match.params._id]);
 

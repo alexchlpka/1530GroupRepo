@@ -29,9 +29,10 @@ const ListCondition = props => {
                   <h5 className="card-title">{SkinCondition.name}</h5>
                   <p className="card-text">
                     <strong>symptoms: </strong>{SkinCondition.symptoms}<br/>
+                    <strong>treatment: </strong>{SkinCondition.treatment}<br/>
                   </p>
                   <div className="row">
-                  <Link to={"/conditions/"+SkinCondition._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
+                  <Link to={`/conditions/id/?_id=${SkinCondition._id}`} className="btn btn-primary col-lg-5 mx-1 mb-1">
                     View Condition
                   </Link>
                   </div>

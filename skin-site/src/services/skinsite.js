@@ -5,8 +5,8 @@ class SkinDataService {
         return http.get();
     }
 
-    get(id){
-        return http.get(`/id/${id}`);
+    get(_id){
+        return http.get(`/id/?_id=${_id}`);
     }
 }
 

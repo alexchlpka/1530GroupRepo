@@ -24,4 +24,21 @@ export default class ConditionsController {
         }
         res.json(response)
     }
+    static async apiGetCondition(req, res, next){
+        let filters = {}
+        if(req.query._id){
+            console.log(`PARAM ID FOUND: ${req.query._id}`)
+            filters._id = req.query._id
+        }
+
+        const {condition} = await ConditionsDAO.getCondition({
+            filters,
+        })
+
+        let response = {
+            condition: condition,
+            filters: filters,
+        }
+        res.json(response)
+    }
 }
