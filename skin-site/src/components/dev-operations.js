@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import SkinDataService from "../services/skinsite";
 import {Link} from "react-router-dom";
 
-const ListCondition = props => {
+const DevOperations = props => {
     const [SkinConditions, setConditions] = useState([]);
 
     useEffect(() => {
@@ -22,6 +22,7 @@ const ListCondition = props => {
         <div>
           <div className="row">
           {Array.isArray(SkinConditions) && SkinConditions.map((SkinCondition) => {
+            console.log(SkinCondition)
           return (
             <div className="col-lg-4 pb-1">
               <div className="card">
@@ -39,10 +40,10 @@ const ListCondition = props => {
               </div>
             </div>
           );
-          })}
+        })}
           </div>
         </div>
     );
 };
 
-export default ListCondition;
+export default DevOperations;

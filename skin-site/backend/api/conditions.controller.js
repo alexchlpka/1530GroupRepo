@@ -1,7 +1,6 @@
 import ConditionsDAO from "../DAO/conditionsDAO.js";
 export default class ConditionsController {
     static async apiGetConditions(req, res, next){
-        console.log(`start apiGetConditions`)
         const conditionsPerPage = req.query.conditionsPerPage ? parseInt(req.query.conditionsPerPage, 10) : 20
         const page = req.query.page ? parseInt(req.query.page, 10) : 0
 
@@ -23,7 +22,6 @@ export default class ConditionsController {
             entries_per_page: conditionsPerPage,
             total_results: totalNumConditions,
         }
-        console.log(response)
         res.json(response)
     }
 }
